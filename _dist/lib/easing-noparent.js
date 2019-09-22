@@ -1,5 +1,5 @@
 /*! ****************************************************************************
- * Easing v0.0.0
+ * Easing v0.0.1
  *
  * A simple library that implements Robert Penner's easing equations.
  * (you can download it from npm or github repositories)
@@ -333,7 +333,7 @@
     };
 
     // Attaches a constant to ESLib that provides the version of the lib.
-    Easing.VERSION = '0.0.0';
+    Easing.VERSION = '0.0.1';
   }());
   /* eslint-enable no-param-reassign, no-cond-assign, no-plusplus, no-else-return,
     max-len, no-return-assign, no-mixed-operators, no-restricted-properties,
