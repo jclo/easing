@@ -3,7 +3,7 @@
 ### 0.0.2
 
   * Updated the project dependencies,
-  * ...,
+  * Release.
 
 
 ### 0.0.1 (September 22, 2019)
