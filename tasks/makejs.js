@@ -6,13 +6,13 @@
 const { src, dest, series } = require('gulp')
     , del     = require('del')
     , concat  = require('gulp-concat')
-    , footer  = require('gulp-footer')
     , replace = require('gulp-replace')
     ;
 
 
 // -- Local modules
-const config = require('./config')
+const pack   = require('../package.json')
+    , config = require('./config')
    ;
 
 
@@ -26,6 +26,7 @@ const destination  = config.libdir
     , head         = source[0]
     , core         = source.slice(1, -1)
     , foot         = source[source.length - 1]
+    , { version }  = pack
     ;
 
 
@@ -49,11 +50,6 @@ function docore() {
     .pipe(replace(/^/g, '  '))
     // indent each other lines with 2 spaces:
     .pipe(replace(/\n/g, '\n  '))
-    // remove the indent added to the blanck lines:
-    // (we need to add an extra line otherwise the indent isn't removed
-    // from the last line!)
-    .pipe(footer('\n'))
-    .pipe(replace(/\s\s\n/g, '\n'))
     .pipe(concat('core.js'))
     .pipe(dest(destination));
 }
@@ -61,9 +57,12 @@ function docore() {
 // Creates the library without 'this'.
 function dolibnoparent() {
   return src([head, `${destination}/core.js`, foot])
-    .pipe(replace('{{lib:name}}', lib))
     .pipe(concat(`${name}${noparent}.js`))
-    .pipe(dest(destination));
+    // fix the blanck lines we indented too:
+    .pipe(replace(/\s{2}\n/g, '\n'))
+    .pipe(replace('{{lib:version}}', version))
+    .pipe(dest(destination))
+  ;
 }
 
 // Creates the library.
