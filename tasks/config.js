@@ -2,20 +2,20 @@
 
 'use strict';
 
-// -- Vendor modules
+// -- Vendor Modules
 
 
-// -- Local modules
+// -- Local Modules
 const pack = require('../package.json');
 
 
-// -- Local constants
+// -- Local Constants
 const libname = 'Easing'
     , name    = libname.replace(/\s+/g, '').toLowerCase()
     ;
 
 
-// -- Local variables
+// -- Local Variables
 
 
 // -- Main
@@ -51,7 +51,7 @@ module.exports = {
       ` * Copyright (c) ${(new Date()).getFullYear()} ${pack.author.name} <${pack.author.email}> (${pack.author.url}).`,
       ' * Released under the MIT license. You may obtain a copy of the License',
       ' * at: http://www.opensource.org/licenses/mit-license.php).',
-      ' * Built from ES6lib v0.0.9.',
+      ' * Built from ES6lib v0.0.12.',
       ' * ************************************************************************** */',
       ''].join('\n');
   },

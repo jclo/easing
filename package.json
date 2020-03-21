@@ -1,8 +1,8 @@
 {
   "name": "@mobilabs/easing",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A simple library that implements Robert Penner's easing equations",
-  "main": "index.js",
+  "main": "_dist/lib/easing.js",
   "bin": {},
   "scripts": {
     "build": "gulp build",

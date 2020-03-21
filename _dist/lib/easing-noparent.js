@@ -1,15 +1,15 @@
-/** ****************************************************************************
- * Easing v0.0.2
+/*! ****************************************************************************
+ * Easing v0.0.3
  *
  * A simple library that implements Robert Penner's easing equations.
  * (you can download it from npm or github repositories)
  * Copyright (c) 2020 Mobilabs <contact@mobilabs.fr> (http://www.mobilabs.fr).
  * Released under the MIT license. You may obtain a copy of the License
  * at: http://www.opensource.org/licenses/mit-license.php).
- * Built from ES6lib v0.0.9.
+ * Built from ES6lib v0.0.12.
  * ************************************************************************** */
 // ESLint declarations
-/* global */
+/* global define */
 /* eslint strict: ["error", "function"] */
 (function(root, factory) {
   /* istanbul ignore next */
@@ -40,7 +40,7 @@
     ;
   /* eslint-enable one-var, semi-style */
 
-  /* ***************************************************************************
+  /** **************************************************************************
    *
    * Defines easing functions.
    *
@@ -95,23 +95,25 @@
    * @version      -
    * ************************************************************************ */
   /* - */
+  /* - */
 
   (function() {
-    // IIFE
-
-    // -- Module path
+    // START OF IIFE
 
 
-    // -- Local modules
+    // -- Module Path
 
 
-    // -- Local constants
+    // -- Local Modules
+
+
+    // -- Local Constants
     // Saves the previous value of the library variable, so that it can be
     // restored later on, if noConflict is used.
     const previousEasing = root.Easing;
 
 
-    // -- Local variables
+    // -- Local Variables
 
 
     // -- Public Static Methods ------------------------------------------------
@@ -127,12 +129,12 @@
        *
        * Nota:
        * Running Easing in noConflic mode, returns the Easing variable to its
-       _ previous owner.
+       * _ previous owner.
        *
        * @method ()
        * @public
        * @param {}            -,
-       * @returns {String}    returns the Easing object,
+       * @returns {Object}    returns the Easing object,
        * @since 0.0.0
        */
       /* istanbul ignore next */
@@ -332,13 +334,16 @@
         return this.easeOutBounce(t * 2 - d, 0, c, d) * 0.5 + c * 0.5 + b;
       },
     };
-
-    // Attaches a constant to ESLib that provides the version of the lib.
-    Easing.VERSION = '0.0.2';
-  }());
-  /* eslint-enable no-param-reassign, no-cond-assign, no-plusplus, no-else-return,
+    /* eslint-enable no-param-reassign, no-cond-assign, no-plusplus, no-else-return,
     max-len, no-return-assign, no-mixed-operators, no-restricted-properties,
     no-var */
+
+    // Attaches a constant to Easing that provides the version of the lib.
+    Easing.VERSION = '0.0.3';
+
+    // END OF IIFE
+  }());
+  /* - */
 
   // Returns the library name:
   return Easing;

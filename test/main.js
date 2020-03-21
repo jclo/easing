@@ -4,17 +4,20 @@
 
 'use strict';
 
-// -- Node modules
+// -- Vendor Modules
 const { expect } = require('chai')
     ;
 
-// -- Local modules
+
+// -- Local Modules
 const Easing = require('../index.js')
     ;
 
-// -- Local constants
 
-// -- Local variables
+// -- Local Constants
+
+
+// -- Local Variables
 
 
 // -- Main

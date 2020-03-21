@@ -2,7 +2,7 @@
 
 'use strict';
 
-// -- Node modules
+// -- Vendor Modules
 const { src, dest, series } = require('gulp')
     , del     = require('del')
     , concat  = require('gulp-concat')
@@ -10,13 +10,13 @@ const { src, dest, series } = require('gulp')
     ;
 
 
-// -- Local modules
+// -- Local Modules
 const pack   = require('../package.json')
     , config = require('./config')
    ;
 
 
-// -- Local constants
+// -- Local Constants
 const destination  = config.libdir
     , source       = config.src
     , lib          = config.libname
@@ -30,7 +30,7 @@ const destination  = config.libdir
     ;
 
 
-// -- Local variables
+// -- Local Variables
 
 
 // -- Gulp Private Tasks
@@ -44,14 +44,17 @@ function clean(done) {
 // Creates the indented content.
 function docore() {
   return src(core)
-    // remove the extra 'use strict':
+    .pipe(replace('{{lib:version}}', version))
+    // remove the extra global and 'use strict':
+    .pipe(replace(/\/\* global[\w$_\s,]+\*\//g, '/* - */'))
     .pipe(replace(/\n'use strict';\n/, ''))
     // indent the first line with 2 spaces:
     .pipe(replace(/^/g, '  '))
     // indent each other lines with 2 spaces:
     .pipe(replace(/\n/g, '\n  '))
     .pipe(concat('core.js'))
-    .pipe(dest(destination));
+    .pipe(dest(destination))
+  ;
 }
 
 // Creates the library without 'this'.
@@ -60,7 +63,6 @@ function dolibnoparent() {
     .pipe(concat(`${name}${noparent}.js`))
     // fix the blanck lines we indented too:
     .pipe(replace(/\s{2}\n/g, '\n'))
-    .pipe(replace('{{lib:version}}', version))
     .pipe(dest(destination))
   ;
 }
@@ -70,7 +72,8 @@ function dolib() {
   return src(`${destination}/${name}${noparent}.js`)
     .pipe(replace('{{lib:parent}}', parent))
     .pipe(concat(`${name}.js`))
-    .pipe(dest(destination));
+    .pipe(dest(destination))
+  ;
 }
 
 // Removes the temp file(s).
