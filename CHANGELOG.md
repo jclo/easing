@@ -4,7 +4,7 @@
 
   * Updated the build to produce both UMD and ES6 modules,
   * Updated the project dependencies,
-  * ...,
+  * Release.
 
 
 ### 0.0.3 (March 21, 2020)
