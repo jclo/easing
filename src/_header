@@ -1,6 +1,7 @@
 // ESLint declarations
 /* global define */
 /* eslint strict: ["error", "function"] */
+{{lib:es6:define}}
 (function(root, factory) {
   'use strict';
 
@@ -14,22 +15,12 @@
     // like Node.
     /* eslint-disable-next-line no-param-reassign */
     module.exports = factory(root);
-    // This is a hack to attach the lib to the browser root when this lib is
-    // included inside another lib and the whole is browserifyied:
-    /* eslint-disable-next-line no-param-reassign */
-    if (root.Easing === null) root.Easing = factory(root);
   } else {
     // Browser globals.
     /* eslint-disable-next-line no-param-reassign */
     root.Easing = factory(root);
   }
-}({{lib:parent}}, (root) => {
+}({{lib:es6:link}}, (root) => {
   'use strict';
 
-  // This is the list of the constants that are defined at the global level of
-  // this module and are accessible to all. So, they are considered as reserved
-  // words for this library.
-  /* eslint-disable one-var, semi-style */
-  let Easing
-    ;
-  /* eslint-enable one-var, semi-style */
+  let Easing;

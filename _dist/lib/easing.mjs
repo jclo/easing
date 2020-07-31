@@ -1,17 +1,20 @@
 /*! ****************************************************************************
- * Easing v0.0.3
+ * Easing v0.0.4
  *
  * A simple library that implements Robert Penner's easing equations.
  * (you can download it from npm or github repositories)
  * Copyright (c) 2020 Mobilabs <contact@mobilabs.fr> (http://www.mobilabs.fr).
  * Released under the MIT license. You may obtain a copy of the License
  * at: http://www.opensource.org/licenses/mit-license.php).
- * Built from ES6lib v0.0.12.
+ * Built from ES6lib v1.0.0-beta.6.
  * ************************************************************************** */
 // ESLint declarations
 /* global define */
 /* eslint strict: ["error", "function"] */
+const $__ES6GLOB = {};
 (function(root, factory) {
+  'use strict';
+
   /* istanbul ignore next */
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
@@ -22,23 +25,15 @@
     // like Node.
     /* eslint-disable-next-line no-param-reassign */
     module.exports = factory(root);
-    // This is a hack to attach the lib to the browser root when this lib is
-    // included inside another lib and the whole is browserifyied:
-    /* eslint-disable-next-line no-param-reassign */
-    if (root.Easing === null) root.Easing = factory(root);
   } else {
     // Browser globals.
     /* eslint-disable-next-line no-param-reassign */
     root.Easing = factory(root);
   }
-}({{lib:parent}}, (root) => {
-  // This is the list of the constants that are defined at the global level of
-  // this module and are accessible to all. So, they are considered as reserved
-  // words for this library.
-  /* eslint-disable one-var, semi-style */
-  let Easing
-    ;
-  /* eslint-enable one-var, semi-style */
+}($__ES6GLOB, (root) => {
+  'use strict';
+
+  let Easing;
 
   /** **************************************************************************
    *
@@ -339,7 +334,7 @@
     no-var */
 
     // Attaches a constant to Easing that provides the version of the lib.
-    Easing.VERSION = '0.0.3';
+    Easing.VERSION = '0.0.4';
 
     // END OF IIFE
   }());
@@ -348,3 +343,6 @@
   // Returns the library name:
   return Easing;
 }));
+
+// -- Export
+export default $__ES6GLOB.Easing;

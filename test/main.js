@@ -21,10 +21,10 @@ const Easing = require('../index.js')
 
 
 // -- Main
-describe('Test JEasing:', () => {
+describe('Test Easing:', () => {
   // Test the lib:
-  describe('Test JEasing.VERSION and JEasing.noConflict:', () => {
-    it('Expects JEasing.VERSION to return a string.', () => {
+  describe('Test Easing.VERSION and Easing.noConflict:', () => {
+    it('Expects Easing.VERSION to return a string.', () => {
       expect(Easing.VERSION).to.be.a('string');
     });
     it('Expects Easing.noConflict to return a function.', () => {
@@ -32,7 +32,7 @@ describe('Test JEasing:', () => {
     });
   });
 
-  describe('Test the JEasing methods:', () => {
+  describe('Test the Easing methods:', () => {
     //
   });
 });

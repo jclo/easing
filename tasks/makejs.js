@@ -18,11 +18,10 @@ const pack   = require('../package.json')
 
 // -- Local Constants
 const destination  = config.libdir
+    , { ES6GLOB }  = config
     , source       = config.src
-    , lib          = config.libname
-    , name         = lib.replace(/\s+/g, '').toLowerCase()
-    , { parent }   = config
-    , { noparent } = config
+    , { libname }  = config
+    , { name }     = config
     , head         = source[0]
     , core         = source.slice(1, -1)
     , foot         = source[source.length - 1]
@@ -41,9 +40,10 @@ function clean(done) {
   done();
 }
 
-// Creates the indented content.
+// Creates the content.
 function docore() {
   return src(core)
+    .pipe(replace('{{lib:name}}', libname))
     .pipe(replace('{{lib:version}}', version))
     // remove the extra global and 'use strict':
     .pipe(replace(/\/\* global[\w$_\s,]+\*\//g, '/* - */'))
@@ -57,21 +57,31 @@ function docore() {
   ;
 }
 
-// Creates the library without 'this'.
-function dolibnoparent() {
+// Creates the library.
+function dolib() {
   return src([head, `${destination}/core.js`, foot])
-    .pipe(concat(`${name}${noparent}.js`))
+    .pipe(replace('{{lib:es6:define}}\n', ''))
+    .pipe(replace('{{lib:es6:link}}', 'this'))
+    .pipe(replace('{{lib:es6:export}}\n', ''))
+    .pipe(concat(`${name}.js`))
     // fix the blanck lines we indented too:
     .pipe(replace(/\s{2}\n/g, '\n'))
     .pipe(dest(destination))
   ;
 }
 
-// Creates the library.
-function dolib() {
-  return src(`${destination}/${name}${noparent}.js`)
-    .pipe(replace('{{lib:parent}}', parent))
-    .pipe(concat(`${name}.js`))
+// Creates the es6 module.
+function domodule() {
+  let exportm = '\n// -- Export\n';
+  exportm += `export default ${ES6GLOB}.${libname};`;
+
+  return src([head, `${destination}/core.js`, foot])
+    .pipe(replace('{{lib:es6:define}}', `const ${ES6GLOB} = {};`))
+    .pipe(replace('{{lib:es6:link}}', ES6GLOB))
+    .pipe(replace('{{lib:es6:export}}', exportm))
+    .pipe(concat(`${name}.mjs`))
+    // fix the blanck lines we indented too:
+    .pipe(replace(/\s{2}\n/g, '\n'))
     .pipe(dest(destination))
   ;
 }
@@ -84,4 +94,4 @@ function delcore(done) {
 
 
 // -- Gulp Public Task(s)
-module.exports = series(clean, docore, dolibnoparent, dolib, delcore);
+module.exports = series(clean, docore, dolib, domodule, delcore);
