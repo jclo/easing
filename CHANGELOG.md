@@ -3,7 +3,7 @@
 ### 0.0.5 (August 7, 2020)
 
   * Updated the project template,
-  * ...,
+  * Release.
 
 
 ### 0.0.4 (July 31, 2020)
