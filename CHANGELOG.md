@@ -1,5 +1,11 @@
 ### HEAD
 
+### 0.0.5 (August 7, 2020)
+
+  * Updated the project template,
+  * ...,
+
+
 ### 0.0.4 (July 31, 2020)
 
   * Updated the build to produce both UMD and ES6 modules,

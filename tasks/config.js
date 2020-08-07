@@ -51,7 +51,7 @@ module.exports = {
       ` * Copyright (c) ${(new Date()).getFullYear()} ${pack.author.name} <${pack.author.email}> (${pack.author.url}).`,
       ' * Released under the MIT license. You may obtain a copy of the License',
       ' * at: http://www.opensource.org/licenses/mit-license.php).',
-      ' * Built from ES6lib v1.0.0-beta.6.',
+      ' * Built from ES6lib v1.0.0-beta.7.',
       ' * ************************************************************************** */',
       ''].join('\n');
   },
