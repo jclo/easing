@@ -32,12 +32,16 @@ module.exports = {
   // These are the Javascript files required to build the library.
   /* eslint-disable no-multi-spaces */
   src: [
-    // This file must always be the first one as it opens the umd module.
+    // These two files (_header, _head.js) must be declared
+    // in this order as they create the umd module, define the global
+    // constants/variables, the object tree and the function to fill
+    // the tree!
     './src/_header',
+    './src/_head.js',
 
     './src/easing.js',
 
-    // This file must always be the last one as it  closes the umd module.
+    // This file must always be the last one as it closes the umd module.
     './src/_footer',
   ],
   /* eslint-enable no-multi-spaces */
@@ -51,7 +55,7 @@ module.exports = {
       ` * Copyright (c) ${(new Date()).getFullYear()} ${pack.author.name} <${pack.author.email}> (${pack.author.url}).`,
       ' * Released under the MIT license. You may obtain a copy of the License',
       ' * at: http://www.opensource.org/licenses/mit-license.php).',
-      ' * Built from ES6lib v1.0.0-beta.7.',
+      ' * Built from ES6lib v1.0.0.',
       ' * ************************************************************************** */',
       ''].join('\n');
   },

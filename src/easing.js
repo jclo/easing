@@ -9,7 +9,14 @@
  *  . none,
  *
  *
+ * Private Static Methods:
+ *  . _setTestMode                returns internal objects for testing purpose,
+ *
+ *
  * Public Static Methods:
+ *  . noConflict                  returns a reference to this Easing object,
+ *  . whoami                      returns the library name and version,
+ *
  *   . linear
  *   . swing
  *   . easeInSine
@@ -45,7 +52,7 @@
  *
  *
  *
- * @namespace    Easing
+ * @namespace    -
  * @dependencies none
  * @exports      -
  * @author       -
@@ -53,7 +60,7 @@
  * @version      -
  * ************************************************************************ */
 /* global root */
-/* - */
+/* eslint-disable no-underscore-dangle */
 
 'use strict';
 
@@ -76,7 +83,7 @@
   // -- Local Variables
 
 
-  // -- Public Static Methods ------------------------------------------------
+  // -- Main -----------------------------------------------------------------
 
   /* eslint-disable no-param-reassign, no-cond-assign, no-plusplus, no-else-return,
     max-len, no-return-assign, no-mixed-operators, no-restricted-properties,
@@ -84,11 +91,36 @@
   /* istanbul ignore next */
   Easing = {
 
+    // Useful to retrieve the library name and version when it is
+    // embedded in another library as an object:
+    _library: { name: '{{lib:name}}', version: '{{lib:version}}' },
+
+
+    // -- Private Static Methods ---------------------------------------------
+
+    /**
+     * Returns the internal objects for testing purpose.
+     * (must not be deleted)
+     *
+     * @method ()
+     * @private
+     * @param {}            -,
+     * @returns {Object}    returns a list of internal objects,
+     * @since 0.0.0
+     */
+    _setTestMode() {
+      return [];
+    },
+
+
+    // -- Public Static Methods ----------------------------------------------
+
     /**
      * Returns a reference to this Easing object.
+     * (must not be deleted)
      *
      * Nota:
-     * Running Easing in noConflic mode, returns the Easing variable to its
+     * Running Easing in no conflict mode, returns the Easing variable to its
      * _ previous owner.
      *
      * @method ()
@@ -97,15 +129,40 @@
      * @returns {Object}    returns the Easing object,
      * @since 0.0.0
      */
-    /* istanbul ignore next */
     noConflict() {
       /* eslint-disable-next-line no-param-reassign */
       root.Easing = previousEasing;
       return this;
     },
 
+    /**
+     * Returns the library name and version.
+     * (must not be deleted)
+     *
+     * @method ()
+     * @public
+     * @param {}            -,
+     * @returns {Object}    returns the library name and version,
+     * @since 0.0.0
+     */
+    whoami() {
+      return this._library;
+    },
+
+    /**
+     * Defines the linear easing method.
+     *
+     * @function (arg1, arg2, arg3, arg4)
+     * @private
+     * @param {Number}      the current lapse time,
+     * @param {Number}      the initial CSS property value,
+     * @param {Number}      the difference between the final and the initial value,
+     * @param {Number}      the animation duration,
+     * @returns {Number}    returns the value of the CSS property at the current
+     * @since 0.0.0         lapse time,
+     */
     linear(t, b, c, d) {
-      return c * t / d + b;
+      return c * (t / d) + b;
     },
 
     swing(t, b, c, d) {
@@ -298,9 +355,10 @@
   max-len, no-return-assign, no-mixed-operators, no-restricted-properties,
   no-var */
 
-  // Attaches a constant to Easing that provides the version of the lib.
+  // Attaches constants to Easing that provide name and version of the lib.
+  Easing.NAME = '{{lib:name}}';
   Easing.VERSION = '{{lib:version}}';
 
   // END OF IIFE
 }());
-/* - */
+/* eslint-enable no-underscore-dangle */
