@@ -4,7 +4,7 @@
 
   * Added a few more unitary tests,
   * Updated the project dependencies,
-  * ...,
+  * Release.
 
 
 ### 0.0.5 (August 7, 2020)
