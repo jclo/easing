@@ -13,6 +13,10 @@ const { expect } = require('chai')
 
 
 // -- Local Constants
+// Number of properties added by your library.
+const OWNPROPS = 32
+    , TESTMODE = 0
+    ;
 
 
 // -- Local Variables
@@ -26,11 +30,14 @@ module.exports = function(Easing, libname, version) {
         expect(Easing).to.be.an('object');
       });
 
-      it('Expects Easing to own 38 properties.', () => {
-        expect(Object.keys(Easing)).to.be.an('array').that.has.lengthOf(38);
+      it(`Expects Easing to own ${6 + OWNPROPS} properties.`, () => {
+        expect(Object.keys(Easing)).to.be.an('array').that.has.lengthOf(6 + OWNPROPS);
       });
     });
 
+
+    // -- This section must not be modified --
+    // NAME, VERSION, _library, _setTestMode, noConflict, whoami
     describe('Check the owned generic properties:', () => {
       it(`Expects Easing to own the property "NAME" whose value is "${libname}".`, () => {
         expect(Easing).to.own.property('NAME').that.is.equal(libname);
@@ -58,17 +65,17 @@ module.exports = function(Easing, libname, version) {
 
       describe('Test the owned generic properties:', () => {
         it('Expects the property "_library" to own two properties.', () => {
-          expect(Object.keys(Easing.whoami())).to.be.an('array').that.has.lengthOf(2);
+          expect(Object.keys(Easing._library)).to.be.an('array').that.has.lengthOf(2);
         });
         it(`Expects the property "_library" to own the property "name" whose value is "${libname}".`, () => {
-          expect(Easing.whoami()).to.own.property('name').that.is.equal(libname);
+          expect(Easing._library).to.own.property('name').that.is.equal(libname);
         });
         it(`Expects the property "_library" to own the property "version" whose value is "${version}".`, () => {
-          expect(Easing.whoami()).to.own.property('version').that.is.equal(version);
+          expect(Easing._library).to.own.property('version').that.is.equal(version);
         });
 
-        it('Expects the property "_setTestMode" to return an array with 0 item.', () => {
-          expect(Easing._setTestMode()).to.be.an('array').that.has.lengthOf(0);
+        it(`Expects the property "_setTestMode" to return an array with ${TESTMODE} item(s).`, () => {
+          expect(Easing._setTestMode()).to.be.an('array').that.has.lengthOf(TESTMODE);
         });
 
         it('Expects the property "noConflict" to return an object.', () => {
@@ -90,6 +97,10 @@ module.exports = function(Easing, libname, version) {
       });
     });
 
+
+    // -- This section must be adapted --
+    // Replace here 'getString' and 'getArray' by the inherited properties
+    // added by your library.
     describe('Check the owned specific properties:', () => {
       it('Expects Easing to own the property "linear" that is a function.', () => {
         expect(Easing).to.own.property('linear').that.is.a('function');
@@ -347,17 +358,6 @@ module.exports = function(Easing, libname, version) {
         it('Expects the property "easeInOutBounce" to return a number that is equal to 0.', () => {
           expect(Easing.easeInOutBounce(0, 0, 100, 100)).to.be.a('number').that.is.equal(0);
         });
-
-
-
-
-
-
-
-
-
-
-
       });
     });
   });

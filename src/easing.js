@@ -87,7 +87,7 @@
 
   /* eslint-disable no-param-reassign, no-cond-assign, no-plusplus, no-else-return,
     max-len, no-return-assign, no-mixed-operators, no-restricted-properties,
-    no-var */
+    no-var, prefer-exponentiation-operator */
   /* istanbul ignore next */
   Easing = {
 

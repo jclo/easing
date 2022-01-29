@@ -1,5 +1,12 @@
 ### HEAD
 
+### 1.0.1 (January 29, 2022)
+
+  * Updated the project dependencies,
+  * Updated the copyright,
+  * ...,
+
+
 ### 1.0.0 (August 28, 2020)
 
   * Added a few more unitary tests,

@@ -1,12 +1,12 @@
 /*! ****************************************************************************
- * Easing v1.0.0
+ * Easing v1.0.1
  *
  * A simple library that implements Robert Penner's easing equations.
  * (you can download it from npm or github repositories)
- * Copyright (c) 2020 Mobilabs <contact@mobilabs.fr> (http://www.mobilabs.fr).
+ * Copyright (c) 2022 Mobilabs <contact@mobilabs.fr> (http://www.mobilabs.fr).
  * Released under the MIT license. You may obtain a copy of the License
  * at: http://www.opensource.org/licenses/mit-license.php).
- * Built from ES6lib v1.0.0.
+ * Built from ES6lib v1.0.13.
  * ************************************************************************** */
 // ESLint declarations
 /* global define */
@@ -130,13 +130,13 @@
 
     /* eslint-disable no-param-reassign, no-cond-assign, no-plusplus, no-else-return,
       max-len, no-return-assign, no-mixed-operators, no-restricted-properties,
-      no-var */
+      no-var, prefer-exponentiation-operator */
     /* istanbul ignore next */
     Easing = {
 
       // Useful to retrieve the library name and version when it is
       // embedded in another library as an object:
-      _library: { name: 'Easing', version: '1.0.0' },
+      _library: { name: 'Easing', version: '1.0.1' },
 
 
       // -- Private Static Methods ---------------------------------------------
@@ -400,7 +400,7 @@
 
     // Attaches constants to Easing that provide name and version of the lib.
     Easing.NAME = 'Easing';
-    Easing.VERSION = '1.0.0';
+    Easing.VERSION = '1.0.1';
 
     // END OF IIFE
   }());

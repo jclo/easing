@@ -8,7 +8,7 @@
 
 
 // -- Local Modules
-const Easing  = require('../index.js')
+const Easing  = require('../index')
     , pack    = require('../package.json')
     , testlib = require('./int/lib')
     ;
@@ -23,5 +23,5 @@ const libname = 'Easing';
 
 // -- Main
 describe('Test Easing:', () => {
-  testlib(Easing, libname, pack.version);
+  testlib(Easing, libname, pack.version, 'without new');
 });
