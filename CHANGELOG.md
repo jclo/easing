@@ -1,5 +1,11 @@
 ### HEAD
 
+### 1.0.x (January 30, 2022)
+
+  * Updated the url of the build badge,
+  * ...,
+
+
 ### 1.0.1 (January 29, 2022)
 
   * Updated the project dependencies,
