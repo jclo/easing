@@ -46,6 +46,12 @@ module.exports = {
   ],
   /* eslint-enable no-multi-spaces */
 
+  webfiles: [
+    // These are the files to copy to the root path of the web app,
+    './README.md',
+    './LICENSE.md',
+  ],
+
   get license() {
     return ['/*! ****************************************************************************',
       ` * ${libname} v${pack.version}`,
@@ -55,7 +61,7 @@ module.exports = {
       ` * Copyright (c) ${(new Date()).getFullYear()} ${pack.author.name} <${pack.author.email}> (${pack.author.url}).`,
       ' * Released under the MIT license. You may obtain a copy of the License',
       ' * at: http://www.opensource.org/licenses/mit-license.php).',
-      ' * Built from ES6lib v1.0.13.',
+      ' * Built from ES6lib v2.1.3.',
       ' * ************************************************************************** */',
       ''].join('\n');
   },

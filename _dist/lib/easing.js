@@ -3,10 +3,10 @@
  *
  * A simple library that implements Robert Penner's easing equations.
  * (you can download it from npm or github repositories)
- * Copyright (c) 2022 Mobilabs <contact@mobilabs.fr> (http://www.mobilabs.fr).
+ * Copyright (c) 2024 Mobilabs <contact@mobilabs.fr> (http://www.mobilabs.fr).
  * Released under the MIT license. You may obtain a copy of the License
  * at: http://www.opensource.org/licenses/mit-license.php).
- * Built from ES6lib v1.0.13.
+ * Built from ES6lib v2.1.3.
  * ************************************************************************** */
 // ESLint declarations
 /* global define */
@@ -14,7 +14,7 @@
 (function(root, factory) {
   'use strict';
 
-  /* istanbul ignore next */
+  /* c8 ignore start */
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
     define([''], factory);
@@ -29,6 +29,7 @@
     /* eslint-disable-next-line no-param-reassign */
     root.Easing = factory(root);
   }
+  /* c8 ignore stop */
 }(this, (root) => {
   'use strict';
 

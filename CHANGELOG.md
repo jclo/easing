@@ -1,8 +1,9 @@
 ### HEAD
 
-### 1.0.x (January 30, 2022)
+### 1.0.2 (January 27, 2024)
 
   * Updated the url of the build badge,
+  * Updated the project with ES6lib v2.1 (no Gulp, Github Actions),
   * ...,
 
 
