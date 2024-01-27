@@ -5,7 +5,7 @@
   * Updated the url of the build badge,
   * Updated the project with ES6lib v2.1 (no Gulp, Github Actions),
   * Updated the badges in the README.md file,
-  * ...,
+  * Release.
 
 
 ### 1.0.1 (January 29, 2022)

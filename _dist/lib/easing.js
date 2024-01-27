@@ -1,5 +1,5 @@
 /*! ****************************************************************************
- * Easing v1.0.1
+ * Easing v1.0.2
  *
  * A simple library that implements Robert Penner's easing equations.
  * (you can download it from npm or github repositories)
@@ -137,7 +137,7 @@
 
       // Useful to retrieve the library name and version when it is
       // embedded in another library as an object:
-      _library: { name: 'Easing', version: '1.0.1' },
+      _library: { name: 'Easing', version: '1.0.2' },
 
 
       // -- Private Static Methods ---------------------------------------------
@@ -401,7 +401,7 @@
 
     // Attaches constants to Easing that provide name and version of the lib.
     Easing.NAME = 'Easing';
-    Easing.VERSION = '1.0.1';
+    Easing.VERSION = '1.0.2';
 
     // END OF IIFE
   }());

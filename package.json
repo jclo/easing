@@ -1,6 +1,6 @@
 {
   "name": "@mobilabs/easing",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple library that implements Robert Penner's easing equations",
   "main": "_dist/lib/easing.js",
   "minified": "_dist/lib/easing.min.js",
